@@ -7,12 +7,12 @@ I have piles of drawings and pictures from my kids that are just sitting in a bo
 Eventually I would like to place a monitor with a frame on the wall and be able to view these as wall art in our home.
 
 #### Steps 
-[ ] Create Readme file to explain plan
-[ ] Scan images from kids
-[ ] Rename images to include kid name
-[ ] Import necessary packages
-[ ]
-[ ] Update ReadMe to futher explain varifications, language etc.
+- [] Create Readme file to explain plan
+- [] Scan images from kids
+- [] Rename images to include kid name
+- [] Import necessary packages
+- []
+- [] Update ReadMe to futher explain varifications, language etc.
 #### Dependencies
-[ ] Import Random
-[ ] 
+- [] Import Random
+- [] 
