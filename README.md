@@ -11,7 +11,7 @@ Eventually I would like to place a monitor with a frame on the wall and be able 
 - [ ] Scan images from kids
 - [ ] Rename images to include kid name
 - [ ] Import necessary packages
-- [ ]
+- [ ] Plan to have 2 different displays for Vertical & Horizontal images
 - [ ] Update ReadMe to futher explain varifications, language etc.
 #### Dependencies
 - [ ] Import Random
