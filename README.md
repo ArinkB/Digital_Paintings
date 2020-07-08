@@ -8,7 +8,7 @@ Eventually I would like to place a monitor with a frame on the wall and be able 
 
 #### Steps 
 - [ ] Create Readme file to explain plan
-- [ ] Scan images from kids
+- [x] Scan images from kids
 - [ ] Rename images to include kid name
 - [ ] Import necessary packages
 - [ ] Plan to have 2 different displays for Vertical & Horizontal images
