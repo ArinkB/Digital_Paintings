@@ -1,13 +1,19 @@
 import os
 from PIL import Image, ImageOps
+import glob
 
-# # img = Image.open('Art/AB-2020.jpg')
-# # img_with_border = ImageOps.expand(img,border=300,fill='black')
-# # img_with_border.save('imaged-with-border.png')
+img = Image.open('Art/AB-2020(2).jpg')
+add_grey_border = ImageOps.expand(img,border=50,fill='grey')
+add_black_border = ImageOps.expand(add_grey_border,border=300,fill='black')
+add_plaque = 
+add_black_border.save('imaged-with-border.png')
 
+# os.chdir('Art')
 
-for i in os.listdir('Art'):
-  img = Image.open(i)
-  img_with_border = ImageOps.expand(img,border=300,fill='black')
-  img_with_border.save('bordered-%s' % i)
+# for i in glob.glob('*.jpg'):
+#   img = Image.open(i)
+#   add_grey_border = ImageOps.expand(img,border=50,fill='grey')
+#   add_black_border = ImageOps.expand(add_grey_border,border=300,fill='black')
+#   add_black_border.save('%s' % i)
+
 
