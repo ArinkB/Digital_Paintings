@@ -5,9 +5,9 @@ from PIL import Image, ImageOps
 # # img_with_border = ImageOps.expand(img,border=300,fill='black')
 # # img_with_border.save('imaged-with-border.png')
 
-path = open('Art')
-for i in os.listdir(path):
+
+for i in os.listdir('Art'):
   img = Image.open(i)
   img_with_border = ImageOps.expand(img,border=300,fill='black')
-  img_with_border.save
+  img_with_border.save('bordered-%s' % i)
 
