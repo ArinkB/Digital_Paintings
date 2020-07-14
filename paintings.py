@@ -18,14 +18,11 @@ def add_title(img_src, title):
     draw = ImageDraw.Draw(img)
     w, h = img.size
     
-
     font = ImageFont.truetype("arial.ttf", 100)
     text_w, text_h = draw.textsize(title, font)
 
     draw.text(((w - text_w) / 2, (h-100) - text_h), title, (255,255,255), font=font, stroke_width=2, stroke_fill='#eeda19')
-
     img.save(img_src)
-
     return img_src
 
 add_title('Art/imaged-with-border.png', 'test')
