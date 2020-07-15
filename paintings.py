@@ -21,21 +21,27 @@ def add_title(img_src, title, year):
     draw = ImageDraw.Draw(img)
     w, h = img.size
     
-    font = ImageFont.truetype("arial.ttf", 100)
-    text_w, text_h = draw.textsize(title, font)
+    title_font = ImageFont.truetype("arial.ttf", 80)
+    year_font = ImageFont.truetype("arial.ttf", 65)
+    title_w, title_h = draw.textsize(title, title_font)
+    year_w, year_h = draw.textsize(year, year_font)
 
-    draw.text(((w - text_w) / 2, (h-100) - text_h), title, (255,255,255), font=font, stroke_width=2, stroke_fill='#eeda19')
-    draw.text(((w - text_w) / 2, (h-50) - text_h), year, (255,255,255), font=font, stroke_width=2, stroke_fill='#eeda19')
+    draw.text(((w - title_w) / 2, (h-155) - title_h), title, (255,255,255), font=title_font, stroke_width=2, stroke_fill='#eeda19')
+    draw.text(((w - year_w) / 2, (h-50) - year_h), year, (255,255,255), font=year_font, stroke_width=2, stroke_fill='#eeda19')
     img.save(img_src)
     return img_src
              
-## Loop through all images to add border and name
+## Loop through all images to add border
 
 for i in glob.glob('*.jpg'):
   img = Image.open(i)
   add_grey_border = ImageOps.expand(img,border=50,fill='grey')
   add_black_border = ImageOps.expand(add_grey_border,border=300,fill='black')
-  add_black_border.save('%s' % i)
+  add_black_border.save(i.replace('jpg', 'jpeg'))
+
+## Loop through all images to add title and year
+
+for i in glob.glob('*.jpeg'):
   if i.startswith('AB'):
     title = "Aveen"
   elif i.startswith('OB'):
@@ -44,5 +50,7 @@ for i in glob.glob('*.jpg'):
     title = "Katie"
   year = re.findall("\d{4}", i)[0]
   add_title(i, title, year)
+
+
 
 
