@@ -27,7 +27,7 @@ def add_title(img_src, title, year):
     year_w, year_h = draw.textsize(year, year_font)
 
     draw.text(((w - title_w) / 2, (h-155) - title_h), title, (255,255,255), font=title_font, stroke_width=2, stroke_fill='#eeda19')
-    draw.text(((w - year_w) / 2, (h-50) - year_h), year, (255,255,255), font=year_font, stroke_width=2, stroke_fill='#eeda19')
+    draw.text(((w - year_w) / 2, (h-75) - year_h), year, (255,255,255), font=year_font, stroke_width=2, stroke_fill='#eeda19')
     img.save(img_src)
     return img_src
              
@@ -51,6 +51,5 @@ for i in glob.glob('*.jpeg'):
   year = re.findall("\d{4}", i)[0]
   add_title(i, title, year)
 
-
-
+## Move Art to appropiate folder for digital display
 
