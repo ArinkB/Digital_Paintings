@@ -1,15 +1,7 @@
-import os
+import os, shutil
 from PIL import Image, ImageOps, ImageDraw, ImageFont
 import glob
 import re
-
-
-# ## SINGLE IMAGE
-
-# img = Image.open('Art/AB-2020 (2).jpg')
-# add_grey_border = ImageOps.expand(img,border=50,fill='grey')
-# add_black_border = ImageOps.expand(add_grey_border,border=300,fill='black')
-# add_black_border.save('Art/imaged-with-border.png')
 
 os.chdir('Art')
 
@@ -39,6 +31,7 @@ for i in glob.glob('*.jpg'):
   add_black_border = ImageOps.expand(add_grey_border,border=300,fill='black')
   add_black_border.save(i.replace('jpg', 'jpeg'))
 
+
 ## Loop through all images to add title and year
 
 for i in glob.glob('*.jpeg'):
@@ -48,8 +41,28 @@ for i in glob.glob('*.jpeg'):
     title = "Olivia"  
   elif i.startswith('KB'):
     title = "Katie"
+
   year = re.findall("\d{4}", i)[0]
   add_title(i, title, year)
-
+  
 ## Move Art to appropiate folder for digital display
 
+os.chdir('..')
+source = "./Art"
+dest1 = "./Art/Landscape"
+dest2 = "./Art/Portrait"
+original = "./Art/OG"
+
+for file in glob.iglob(os.path.join(source,'*.jpeg')):
+    img = Image.open(file)
+    draw = ImageDraw.Draw(img)
+    width, height = img.size
+    if width > height:
+        shutil.move(file, dest1)
+    else:
+        shutil.move(file, dest2)
+
+# for file in glob.iglob(os.path.join(source,'*.jpg')):
+#         shutil.move(file, original)        
+
+        
