@@ -23,14 +23,17 @@ def add_title(img_src, title, year):
     img.save(img_src)
     return img_src
              
-## Loop through all images to add border
+## Function to add border
+
+def border(img_src):
+    img = Image.open(img_src)
+    add_grey_border = ImageOps.expand(img,border=50,fill='grey')
+    add_black_border = ImageOps.expand(add_grey_border,border=300,fill='black')
+    add_black_border.save(img_src.replace('jpg', 'jpeg'))
+    
 
 for i in glob.glob('*.jpg'):
-  img = Image.open(i)
-  add_grey_border = ImageOps.expand(img,border=50,fill='grey')
-  add_black_border = ImageOps.expand(add_grey_border,border=300,fill='black')
-  add_black_border.save(i.replace('jpg', 'jpeg'))
-
+  border(i)
 
 ## Loop through all images to add title and year
 
@@ -62,7 +65,7 @@ for file in glob.iglob(os.path.join(source,'*.jpeg')):
     else:
         shutil.move(file, dest2)
 
-# for file in glob.iglob(os.path.join(source,'*.jpg')):
-#         shutil.move(file, original)        
+for file in glob.iglob(os.path.join(source,'*.jpg')):
+        shutil.move(file, original)        
 
         
